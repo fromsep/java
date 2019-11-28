@@ -5,10 +5,10 @@ public class Main {
         Depository depository = new Depository();
 
         for (int i = 0; i < 100; i++) {
-            Producter producter = new Producter("P-" + i, depository);
+            Productor productor = new Productor("P-" + i, depository);
             Consumer consumer = new Consumer( "C-" + i, depository);
 
-            producter.start();
+            productor.start();
             consumer.start();
         }
 
