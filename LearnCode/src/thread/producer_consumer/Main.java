@@ -1,14 +1,14 @@
-package thread.prodcuter_consumer;
+package thread.producer_consumer;
 
 public class Main {
     public static void main(String[] args) {
         Depository depository = new Depository();
 
         for (int i = 0; i < 100; i++) {
-            Productor productor = new Productor("P-" + i, depository);
+            Producer producer = new Producer("P-" + i, depository);
             Consumer consumer = new Consumer( "C-" + i, depository);
 
-            productor.start();
+            producer.start();
             consumer.start();
         }
 

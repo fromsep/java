@@ -1,9 +1,9 @@
-package thread.prodcuter_consumer;
+package thread.producer_consumer;
 
-class Productor extends Thread {
+class Producer extends Thread {
     private Depository depository;
 
-    Productor(String name, Depository depository) {
+    Producer(String name, Depository depository) {
         super(name);
         this.depository = depository;
     }

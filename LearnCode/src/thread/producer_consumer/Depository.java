@@ -1,4 +1,4 @@
-package thread.prodcuter_consumer;
+package thread.producer_consumer;
 
 class Depository {
     private int productAmount = 0;

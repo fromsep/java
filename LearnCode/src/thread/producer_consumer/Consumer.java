@@ -1,4 +1,4 @@
-package thread.prodcuter_consumer;
+package thread.producer_consumer;
 
 class Consumer extends Thread {
     private Depository depository;
