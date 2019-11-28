@@ -1,4 +1,4 @@
-package thread;
+package thread.base;
 
 public class MyThread extends Thread {
     public MyThread(String name) {

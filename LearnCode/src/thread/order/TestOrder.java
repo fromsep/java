@@ -1,4 +1,4 @@
-package thread;
+package thread.order;
 
 public class TestOrder {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package thread;
+package thread.order;
 
 public class Sale implements Runnable {
     private int productAmount = 100;
