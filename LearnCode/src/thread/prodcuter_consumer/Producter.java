@@ -1,14 +1,19 @@
 package thread.prodcuter_consumer;
 
-public class Producter extends Thread {
+class Producter extends Thread {
     private Depository depository;
 
-    public Producter(Depository depository) {
+    Producter(String name, Depository depository) {
+        super(name);
         this.depository = depository;
     }
 
     @Override
     public void run() {
-        super.run();
+        int amount = 10;
+        boolean result = this.depository.increaseProduct(amount);
+        if(result) {
+            System.out.printf("[%s]生产了产品%d, 剩余%d\n", this.getName(), amount, this.depository.getProductAmount());
+        }
     }
 }

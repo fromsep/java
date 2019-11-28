@@ -1,14 +1,28 @@
 package thread.prodcuter_consumer;
 
-public class Depository {
+class Depository {
     private int productAmount = 0;
 
-    public synchronized void increase(int amount) {
+    synchronized boolean increaseProduct(int amount) {
         this.productAmount += amount;
+        return true;
     }
 
-    public synchronized void decrease(int amount) {
-        this.productAmount -= amount;
+    synchronized boolean decreaseProduct(int amount) {
+        if(this.productAmount == 0) {
+            return false;
+        }
+
+        if (this.productAmount >= amount) {
+            this.productAmount -= amount;
+        } else {
+            this.productAmount = 0;
+        }
+
+        return true;
     }
 
+    int getProductAmount() {
+        return productAmount;
+    }
 }
