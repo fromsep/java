@@ -5,21 +5,31 @@ class Depository {
 
     synchronized boolean increaseProduct(int amount) {
         this.productAmount += amount;
+        notifyAll();
         return true;
     }
 
-    synchronized boolean decreaseProduct(int amount) {
+    synchronized int decreaseProduct(int amount) {
+        int decreaseAmount = 0;
         if(this.productAmount == 0) {
-            return false;
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.printf("[%s]没产品了,等待中\n", Thread.currentThread().getName());
+            return decreaseAmount;
         }
 
         if (this.productAmount >= amount) {
             this.productAmount -= amount;
+            decreaseAmount = amount;
         } else {
+            decreaseAmount = this.productAmount;
             this.productAmount = 0;
         }
 
-        return true;
+        return decreaseAmount;
     }
 
     int getProductAmount() {

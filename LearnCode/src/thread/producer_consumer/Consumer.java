@@ -10,10 +10,8 @@ class Consumer extends Thread {
 
     @Override
     public void run() {
-        int amount = 1;
-        boolean result = this.depository.decreaseProduct(amount);
-        if(result) {
-            System.out.printf("[%s]消费了产品%d,剩余%d\n", this.getName(), amount,this.depository.getProductAmount());
-        }
+        int amount = 15;
+        int decreaseAmount = this.depository.decreaseProduct(amount);
+        System.out.printf("[%s]消费了产品%d,剩余%d\n", this.getName(), decreaseAmount,this.depository.getProductAmount());
     }
 }
