@@ -12,7 +12,7 @@ public class Test {
 
         Integer integer = string2int(s, str -> Integer.parseInt(str) + 1000);
         System.out.println(integer);
-        
+
         Integer convert = convert(number, String::valueOf, str -> Integer.parseInt(str) + 1000);
         System.out.println(convert);
     }
